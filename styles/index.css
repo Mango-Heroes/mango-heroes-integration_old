@@ -317,3 +317,19 @@ input[type='number'] {
 .react-swipeable-view-container > div[aria-hidden='true'] {
   height: 0;
 }
+
+.react-chat-messagesList {
+  background-color: #37324d !important;
+}
+
+.rcw-new-message {
+  color: #f2c94c !important;
+}
+
+.rcw-send-icon {
+  color: #f2c94c !important;
+}
+
+.rcw-messages-container {
+  background-color: black !important;
+}

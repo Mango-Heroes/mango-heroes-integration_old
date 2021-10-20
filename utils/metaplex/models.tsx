@@ -305,18 +305,15 @@ const extendBorsh = () => {
     const array = reader.readFixedArray(32)
     return new PublicKey(array)
   }
-
   ;(BinaryWriter.prototype as any).writePubkey = function (value: any) {
     const writer = this as unknown as BinaryWriter
     writer.writeFixedArray(value.toBuffer())
   }
-
   ;(BinaryReader.prototype as any).readPubkeyAsString = function () {
     const reader = this as unknown as BinaryReader
     const array = reader.readFixedArray(32)
     return base58.encode(array) as StringPublicKey
   }
-
   ;(BinaryWriter.prototype as any).writePubkeyAsString = function (
     value: StringPublicKey
   ) {
