@@ -1,7 +1,18 @@
+import dynamic from 'next/dynamic'
 import React, { useEffect, useState } from 'react'
 import useMangoStore from '../stores/useMangoStore'
 import { io } from 'socket.io-client'
-import ChatBox, { ChatFrame } from 'react-chat-plugin'
+
+// Dynamically import as it can't be rendered server side
+const ChatBox = dynamic(
+  () => (import('react-chat-plugin') as any).then((mod) => mod),
+  { ssr: false }
+)
+
+const ChatFrame = dynamic(
+  () => (import('react-chat-plugin') as any).then((mod) => mod.ChatFrame),
+  { ssr: false }
+)
 
 const TrollBox = () => {
   const imageUrl = useMangoStore((s) => s.settings.avatar)
@@ -76,29 +87,49 @@ const TrollBox = () => {
 
   return (
     <div>
-      {
-        // Display chat only if username and profile pic exist
-        connected && username && imageUrl && (
-          <ChatFrame
+      <ChatFrame
+        //@ts-ignore
+        chatbox={
+          <ChatBox
             //@ts-ignore
-            chatbox={
-              <ChatBox
-                //@ts-ignore
-                userId={1}
-                messages={messages}
-                width={'300px'}
-                onSendMessage={sendMessage}
-              />
-            }
-            clickIcon={handleClickIcon}
-            showChatbox={showChatBox}
-            showIcon={showIcon}
-            iconStyle={{ background: '#FF9C24', fill: 'white' }}
-          ></ChatFrame>
-        )
-      }
+            userId={1}
+            messages={messages}
+            width={'300px'}
+            onSendMessage={sendMessage}
+          />
+        }
+        clickIcon={handleClickIcon}
+        showChatbox={showChatBox}
+        showIcon={showIcon}
+        iconStyle={{ background: '#FF9C24', fill: 'white' }}
+      ></ChatFrame>
     </div>
   )
+  //   return (
+  //     <div>
+  //       {
+  //         // Display chat only if username and profile pic exist
+  //         connected && username && imageUrl && (
+  //           <ChatFrame
+  //             //@ts-ignore
+  //             chatbox={
+  //               <ChatBox
+  //                 //@ts-ignore
+  //                 userId={1}
+  //                 messages={messages}
+  //                 width={'300px'}
+  //                 onSendMessage={sendMessage}
+  //               />
+  //             }
+  //             clickIcon={handleClickIcon}
+  //             showChatbox={showChatBox}
+  //             showIcon={showIcon}
+  //             iconStyle={{ background: '#FF9C24', fill: 'white' }}
+  //           ></ChatFrame>
+  //         )
+  //       }
+  //     </div>
+  //   )
 }
 
 export default TrollBox
