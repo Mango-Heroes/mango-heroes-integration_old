@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic'
 import React, { useEffect, useState } from 'react'
 import useMangoStore from '../stores/useMangoStore'
 import { io } from 'socket.io-client'
+import ChatBox, { ChatFrame } from 'react-chat-plugin'
 
 const TrollBox = () => {
   const imageUrl = useMangoStore((s) => s.settings.avatar)
@@ -14,16 +14,6 @@ const TrollBox = () => {
   const [socket, setSocket] = useState(null)
   const [messages, setMessages] = useState([])
   const showIcon = true
-
-  // Dynamically import as it can't be rendered server side
-  const ChatBox = dynamic(
-    (import('react-chat-plugin') as any).then((mod) => mod),
-    { ssr: false }
-  )
-  const ChatFrame = dynamic(
-    (import('react-chat-plugin') as any).then((mod) => mod.ChatFrame),
-    { ssr: false }
-  )
 
   const handleClickIcon = () => {
     setshowChatBox(!showChatBox)
