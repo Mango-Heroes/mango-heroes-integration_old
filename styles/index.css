@@ -337,11 +337,12 @@ input[type='number'] {
 }
 
 .react-chat-frame-icon-container {
-  content:url(/assets/icons/logo.svg);
+  content: url(/assets/icons/logo.svg);
 }
 
-.react-chat-bubble, .react-chat-leftBubble {
-  color: #FF9C24 !important;
+.react-chat-bubble,
+.react-chat-leftBubble {
+  color: #ff9c24 !important;
   border-width: 0px !important;
   padding-right: 0px !important;
   padding-left: 0px !important;
@@ -355,7 +356,7 @@ input[type='number'] {
 }
 
 .react-chat-SendIcon {
-  fill: #FF9C24 !important;
+  fill: #ff9c24 !important;
 }
 
 .react-chat-additional {
@@ -364,7 +365,7 @@ input[type='number'] {
 }
 
 .react-chat-notification {
-  color: #FF9C24 !important;
+  color: #ff9c24 !important;
 }
 
 .react-chat-messagesList {
@@ -392,4 +393,3 @@ input[type='number'] {
 .react-chat-messagesList::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
