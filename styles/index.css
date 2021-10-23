@@ -319,17 +319,77 @@ input[type='number'] {
 }
 
 .react-chat-messagesList {
-  background-color: #37324d !important;
+  background-color: #141026 !important;
 }
 
-.rcw-new-message {
-  color: #f2c94c !important;
+.react-chat-frame {
+  width: 25% !important;
 }
 
-.rcw-send-icon {
-  color: #f2c94c !important;
+.react-chat-viewerBox {
+  width: 100% !important;
+  border-radius: 5px !important;
+  border-color: rgb(201, 141, 30) !important;
 }
 
-.rcw-messages-container {
-  background-color: black !important;
+.react-chat-frame-icon {
+  display: none !important;
 }
+
+.react-chat-frame-icon-container {
+  content:url(/assets/icons/logo.svg);
+}
+
+.react-chat-bubble, .react-chat-leftBubble {
+  color: #FF9C24 !important;
+  border-width: 0px !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  background-color: transparent !important;
+}
+
+.react-chat-inputBox {
+  background-color: #2a2440 !important;
+  border-width: 0px !important;
+  color: white !important;
+}
+
+.react-chat-SendIcon {
+  fill: #FF9C24 !important;
+}
+
+.react-chat-additional {
+  color: #3fa32d !important;
+  margin-top: 3px;
+}
+
+.react-chat-notification {
+  color: #FF9C24 !important;
+}
+
+.react-chat-messagesList {
+  scrollbar-color: rgb(201, 141, 30) #555 !important;
+  scrollbar-width: thin !important;
+}
+
+.react-chat-messagesList::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.react-chat-messagesList::-webkit-scrollbar-track {
+  background: #555;
+  border-radius: 5px;
+}
+
+/* Handle */
+.react-chat-messagesList::-webkit-scrollbar-thumb {
+  background: rgb(201, 141, 30);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.react-chat-messagesList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
